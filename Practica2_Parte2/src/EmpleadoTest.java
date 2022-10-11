@@ -7,6 +7,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class EmpleadoTest {
+	
+	String tipo1;
+	String tipo2;
+	
+	float ventasMes;
+	float horasExtra;
+	float nominaBruta;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
