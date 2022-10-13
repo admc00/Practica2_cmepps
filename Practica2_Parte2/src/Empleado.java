@@ -1,6 +1,6 @@
 
 public class Empleado {
-	public float calculoNominaBruta(String TipoEmpleado , float ventasMes, float horasExtra) {
+	public static float calculoNominaBruta(String TipoEmpleado , float ventasMes, float horasExtra) {
 		int salarioBase;
 		float salario=0;
 		if(TipoEmpleado=="Vendedor") {
@@ -26,7 +26,7 @@ public class Empleado {
 		}
 		return salario;
 	}
-	public float calculoNominaNeta(float nominaBruta) {
+	public static float calculoNominaNeta(float nominaBruta) {
 		float retencion=0;
 		if( nominaBruta>2100 & nominaBruta<2500) {
 			retencion=(float) 0.15;

@@ -10,10 +10,6 @@ class EmpleadoTest {
 	
 	String tipo1;
 	String tipo2;
-	
-	float ventasMes;
-	float horasExtra;
-	float nominaBruta;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -25,20 +21,77 @@ class EmpleadoTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		tipo1="Encargado";
+		tipo2="Vendedor";
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
+		tipo1="";
+		tipo2="";
 	}
 
 	@Test
-	void testCalculoNominaBruta() {
-		fail("Not yet implemented");
+	void testEncargado() {
+		float resultadoEsperado=2900;
+		float resultadoPrueba = Empleado.calculoNominaBruta(tipo1,1100,10);
+		assertEquals(resultadoEsperado,resultadoPrueba);
 	}
+	@Test
+	void testVendedor() {
+		float resultadoEsperado=2400;
+		float resultadoPrueba = Empleado.calculoNominaBruta(tipo2,1100,10);
+		assertEquals(resultadoEsperado,resultadoPrueba);
+	}
+	@Test
+	void testSinPrima() {
+		float resultadoEsperado=2800;
+		float resultadoPrueba = Empleado.calculoNominaBruta(tipo1,900,10);
+		assertEquals(resultadoEsperado,resultadoPrueba);
+	}
+	@Test
+	void testPrima1() {
+		float resultadoEsperado=2900;
+		float resultadoPrueba = Empleado.calculoNominaBruta(tipo1,1100,10);
+		assertEquals(resultadoEsperado,resultadoPrueba);
+	}
+	@Test
+	void testPrima2() {
+		float resultadoEsperado=3000;
+		float resultadoPrueba = Empleado.calculoNominaBruta(tipo1,1500,10);
+		assertEquals(resultadoEsperado,resultadoPrueba);
+	}
+	@Test
+	void testPagaExtra() {
+		float resultadoEsperado=2900;
+		float resultadoPrueba = Empleado.calculoNominaBruta(tipo1,1100,10);
+		assertEquals(resultadoEsperado,resultadoPrueba);
+	}
+	@Test
+	void testSinPagaExtra() {
+		float resultadoEsperado=2600;
+		float resultadoPrueba = Empleado.calculoNominaBruta(tipo1,1100,0);
+		assertEquals(resultadoEsperado,resultadoPrueba);
+	}
+	
 
 	@Test
-	void testCalculoNominaNeta() {
-		fail("Not yet implemented");
+	void testCalculoNominaNeta0() {
+		float resultadoEsperado=2000;
+		float resultadoPrueba = Empleado.calculoNominaNeta(2000);
+		assertEquals(resultadoEsperado,resultadoPrueba);
+	}
+	@Test
+	void testCalculoNominaNeta15() {
+		float resultadoEsperado=1870;
+		float resultadoPrueba = Empleado.calculoNominaNeta(2200);
+		assertEquals(resultadoEsperado,resultadoPrueba);
+	}
+	@Test
+	void testCalculoNominaNeta18() {
+		float resultadoEsperado=2132;
+		float resultadoPrueba = Empleado.calculoNominaNeta(2600);
+		assertEquals(resultadoEsperado,resultadoPrueba);
 	}
 
 }
